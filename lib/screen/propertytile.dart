@@ -11,9 +11,10 @@ class PropertyTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference user = FirebaseFirestore.instance.collection('Users');
+    CollectionReference property =
+        FirebaseFirestore.instance.collection('properties');
     return FutureBuilder<DocumentSnapshot>(
-      future: user.doc('QpLHQAFdS5MEJadwk7aK').get(),
+      future: property.doc('o4ro4TJETLPMPAuVi7Pf').get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
@@ -81,7 +82,7 @@ class PropertyTile extends StatelessWidget {
                           children: [
                             Flexible(
                               child: Text(
-                                'Casa Paradise',
+                                data['name'],
                                 textAlign: TextAlign.center,
                                 style: context.titleLarge!.bold,
                               ),
@@ -90,7 +91,7 @@ class PropertyTile extends StatelessWidget {
                         ),
                         10.0.heightBox,
                         Text(
-                          'Chimanlal Girdharlal Rd, New Commercial Mills Staff Society, Ellisbridge, Ahmedabad, Gujarat 380009',
+                          data['address'],
                           textAlign: TextAlign.start,
                           style:
                               context.titleSmall!.apply(color: AppColors.grey),
@@ -113,7 +114,7 @@ class PropertyTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Tenant : Japan Shah',
+                              'Tenant :  ${data['tenant']}',
                               style: context.titleMedium,
                             ),
                           ],
@@ -124,7 +125,7 @@ class PropertyTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Contract Period : 11 Months',
+                              'Contract Period : ${data['contranct']}',
                               style: context.titleMedium,
                             ),
                           ],
@@ -141,7 +142,7 @@ class PropertyTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Rent : 5000',
+                              'Rent : ${data['rent']}',
                               style: context.titleMedium,
                             ),
                           ],
@@ -152,7 +153,7 @@ class PropertyTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Last Rent Date : 05/09/2022',
+                              'Last Rent Date : ${data['last_rent'].toDate()}',
                               style: context.titleMedium,
                             ),
                           ],
