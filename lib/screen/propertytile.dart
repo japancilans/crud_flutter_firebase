@@ -5,16 +5,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class PropertyTile extends StatelessWidget {
-  const PropertyTile({
-    Key? key,
-  }) : super(key: key);
+  final CollectionReference collection;
+  final String docId;
+  const PropertyTile({Key? key, required this.collection, required this.docId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference property =
-        FirebaseFirestore.instance.collection('properties');
     return FutureBuilder<DocumentSnapshot>(
-      future: property.doc('o4ro4TJETLPMPAuVi7Pf').get(),
+      future: collection.doc(docId).get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
