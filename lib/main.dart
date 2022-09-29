@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Rent App',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Color.FFE600,
       ),
-      home: const PropertyList(),
+      home: const PropertyList(), 
     );
   }
 }

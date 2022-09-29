@@ -11,8 +11,12 @@ class AdProperty extends StatefulWidget {
 }
 
 class _AdPropertyState extends State<AdProperty> {
-  final TextEditingController NameCtr = TextEditingController();
-  final TextEditingController addressLineCtr = TextEditingController();
+  final TextEditingController tenantNameCtr = TextEditingController();
+  final TextEditingController addressCtr = TextEditingController();
+  final TextEditingController contractCtr = TextEditingController();
+  final TextEditingController last_rentCtr = TextEditingController();
+  final TextEditingController rentCtr = TextEditingController();
+  final TextEditingController propertyCtr = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +26,79 @@ class _AdPropertyState extends State<AdProperty> {
           child: SingleChildScrollView(
         child: Column(children: [
           TextFormField(
-            controller: firstNameCtr,
+            controller: propertyCtr,
             decoration: InputDecoration(
-              labelText: 'first_name',
+              labelText: 'Property Name',
+              suffixText: '*',
+              suffixStyle: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            validator: _validations.validateFname,
+            textCapitalization: TextCapitalization.sentences,
+            textInputAction: TextInputAction.next,
+          ),
+          20.0.heightBox,
+          TextFormField(
+            controller: addressCtr,
+            decoration: InputDecoration(
+              labelText: 'Property Address',
+              suffixText: '*',
+              suffixStyle: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            validator: _validations.validateFname,
+            textCapitalization: TextCapitalization.sentences,
+            textInputAction: TextInputAction.next,
+          ),
+          20.0.heightBox,
+          TextFormField(
+            controller: tenantNameCtr,
+            decoration: InputDecoration(
+              labelText: 'Tenant Name',
+              suffixText: '*',
+              suffixStyle: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            validator: _validations.validateFname,
+            textCapitalization: TextCapitalization.sentences,
+            textInputAction: TextInputAction.next,
+          ),
+          20.0.heightBox,
+          TextFormField(
+            controller: contractCtr,
+            decoration: InputDecoration(
+              labelText: 'Contract period',
+              suffixText: '*',
+              suffixStyle: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            validator: _validations.validateFname,
+            textCapitalization: TextCapitalization.sentences,
+            textInputAction: TextInputAction.next,
+          ),
+          20.0.heightBox,
+          TextFormField(
+            controller: rentCtr,
+            decoration: InputDecoration(
+              labelText: 'Rent Amount',
+              suffixText: '*',
+              suffixStyle: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            validator: _validations.validateFname,
+            textCapitalization: TextCapitalization.sentences,
+            textInputAction: TextInputAction.next,
+          ),
+          20.0.heightBox,
+          TextFormField(
+            controller: last_rentCtr,
+            decoration: InputDecoration(
+              labelText: 'Last Rent',
               suffixText: '*',
               suffixStyle: const TextStyle(
                 color: Colors.red,
